@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const mongooseConnect = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/artnest");
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("DB Connected");
   } catch (error) {
     console.log(error.message);
@@ -154,7 +154,10 @@ const customArtworkSchema = new Schema({
   size: { type: String, default: "Not sure yet" },
   style: { type: String, default: "Not sure yet" },
   budge: { type: String, required: true },
-  neededDate: { type: Date, default: () => new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) },
+  neededDate: {
+    type: Date,
+    default: () => new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+  },
   description: { type: String, required: true },
   note: { type: String, default: "" },
   status: {
