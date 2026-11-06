@@ -10,7 +10,13 @@ const GuestRouter = require("./routes/guest.route");
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://artnest-sigma.vercel.app",
+    methods: "*",
+    credentials: true,
+  }),
+);
 
 app.use("/auth", AuthRouter);
 app.use("/artwork", ArtworkRouter);
