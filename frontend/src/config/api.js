@@ -2,9 +2,10 @@ import axios from "axios";
 
 /**
  * Global API Base URL
- * Reads from Vite environment variable `VITE_API_BASE_URL` or falls back to http://localhost:5000
+ * Reads from Vite environment variable `API_BASE_URL` or falls back to http://localhost:5000
  */
 export const API_BASE_URL =
+  import.meta.env.API_BASE_URL ||
   import.meta.env.VITE_API_BASE_URL ||
   import.meta.env.VITE_API_URL ||
   "http://localhost:5000";
