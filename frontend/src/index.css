@@ -1,0 +1,64 @@
+@tailwind base;
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;  
+}
+
+*::-webkit-scrollbar {
+  display: none;        
+  width: 0;
+  height: 0;
+}
+@tailwind components;
+@tailwind utilities;
+
+.nav-reel {
+  --color: #a65335;
+  display: inline-block;
+  position: relative;
+  width: 6.5em;
+  height: 2.4em;
+  line-height: 2.2em;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.5s;
+}
+
+.nav-reel:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+
+.nav-reel:hover,
+.nav-reel.is-active {
+  color: #fff;
+}
+
+.nav-reel:hover:before,
+.nav-reel.is-active:before {
+  top: -30px;
+  left: -30px;
+}
+
+.nav-reel:active:before {
+  background: #8f462c;
+  transition: background 0s;
+}
