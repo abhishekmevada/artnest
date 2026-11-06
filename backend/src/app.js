@@ -12,8 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://artnest-sigma.vercel.app",
-    methods: "*",
+    origin: "https://artnest-ygz41mniv-my-4223.vercel.app",
     credentials: true,
   }),
 );
